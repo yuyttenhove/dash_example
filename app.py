@@ -1,8 +1,11 @@
 import dash
 import dash_bootstrap_components as dbc
 from dash import html, Output, Input, State, dcc
+from flask import Flask
 
-app = dash.Dash(prevent_initial_callbacks=True, external_stylesheets=[dbc.themes.BOOTSTRAP, dbc.icons.FONT_AWESOME])
+
+server = Flask(__name__)
+app = dash.Dash(server=server, prevent_initial_callbacks=True, external_stylesheets=[dbc.themes.BOOTSTRAP, dbc.icons.FONT_AWESOME])
 
 total = dbc.Row(
     [
